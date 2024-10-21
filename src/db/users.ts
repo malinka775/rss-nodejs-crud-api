@@ -13,26 +13,13 @@ export interface UserRequest {
   hobbies: string[],
 }
 
-const users: Record<UUID, User> = {
-  '12345678-1234-1234-1234-123456789012': {
-    id: '12345678-1234-1234-1234-123456789012',
-    username: 'Alina',
-    age: 33,
-    hobbies: ['swimming'],
-  },
-  '21345678-2134-2134-1234-123456789876': {
-    id: '21345678-2134-2134-1234-123456789876',
-    username: 'Bulat',
-    age: 33,
-    hobbies: ['programming'],
-  }
-}
+const users: Record<UUID, User> = {}
 
-const fetchAll = () => {
+const fetchAll = ():Promise<User[]> => {
   return new Promise((resolve, _) => {
     resolve(Object.values(users));
 })}
-const fetchById = (id: UUID) => {
+const fetchById = (id: UUID): Promise<User | undefined> => {
   return new Promise((resolve, _) => {
     const user = users[id];
     resolve(user);
@@ -48,14 +35,14 @@ const addUser = (user: UserRequest): Promise<User> => {
   })
 }
 
-const updateUser = (id: UUID, user: User) => {
+const updateUser = (id: UUID, user: User): Promise<User> => {
   return new Promise(async(resolve) => {
     users[id] = user;
     resolve(users[id]);
   })
 }
 
-const deleteUser = (id: UUID) => {
+const deleteUser = (id: UUID): Promise<UUID> => {
   return new Promise(async(resolve) => {
     delete users[id];
     resolve(id);

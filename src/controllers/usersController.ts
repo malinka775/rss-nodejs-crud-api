@@ -50,7 +50,7 @@ const createUser = async (req:IncomingMessage, res:ServerResponse) => {
       }
         const newUser = await Users.addUser(user);
         res.writeHead(201, { 'Content-Type': 'application/json' })
-        return res.end(JSON.stringify({data: {id: newUser.id}}));
+        return res.end(JSON.stringify({data: newUser}));
     } else {
       res.writeHead(400, { 'Content-Type': 'application/json' })
       return res.end(JSON.stringify({error: 'Failed to create. Body does not contain required fields'}));
