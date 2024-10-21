@@ -20,4 +20,6 @@
     "strictPropertyInitialization": false,
     "target": "ES2020"
   },
+  "include": ["./src/**/*", "./src/*", ".*ts", ".eslintrc.js"],
+  "exclude": ["node_modules"]
 }
