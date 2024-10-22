@@ -11,7 +11,7 @@ import {
 const validUrlBase = '^/api/users/?';
 const userUrlRegexp = '^\/api\/users\/.*'
 const usersUrlRegexp = '^\/api\/users\/?$';
-const uiudRegexp = '[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}';
+export const uiudRegexp = '[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}';
 
 const server = createServer(
   async (req: IncomingMessage, res: ServerResponse) => {
